@@ -1,0 +1,17 @@
+DA:
+  # データ同化のための設定値
+  assimilate_steps: 150   # いわゆる同化ウィンドウのステップ数
+  local_loops: 10        # edmdを用いた擬似ADJの局所的な更新ループ数
+  global_loops: 30      # 物理計算によるモード更新を含めた全体ループ数
+  alpha: 0.15
+
+OBS:
+  step: 10                 # 10なら10ステップごとの観測として扱う
+
+DMD:
+  rank: 50
+  dt: 1
+  NumberOfLifts: 2
+  dct_threshold: -1.0     # 残しておく低周波成分の割合
+  substract_ave: False
+

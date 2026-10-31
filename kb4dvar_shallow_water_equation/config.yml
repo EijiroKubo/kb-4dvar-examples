@@ -1,0 +1,28 @@
+MODEL: 
+  # common条件
+  dt: 0.1                  # 計算時のΔt
+  time_proceed: 600.0         # 一度の計算ループで進める秒数
+  t_update: 6.0             # python側に共有するdepthの分割秒数
+  number_of_threads: 6      # CalcSeaに当てるthread数
+
+  # 解析領域に関する設定
+  initial_depth: 10.0       # 初期水深＝10.0mで固定
+  read_initial_file: False  # mesh.csvを読み込む=True
+  i_num: 200
+  j_num: 200 
+  dy: 50.0
+  dx: 50.0
+
+DA:
+  # データ同化のための設定値
+  assimilate_steps: 60   # いわゆる同化ウィンドウのステップ数
+  local_loops: 10        # edmdを用いた擬似ADJの局所的な更新ループ数
+  global_loops: 100      # 物理計算によるモード更新を含めた全体ループ数
+  alpha: 0.20
+
+DMD:
+  rank: 80
+  dt: 1
+  NumberOfLifts: 2
+  dct_threshold: 0.8       # 残しておく低周波成分の割合
+  substract_ave: False
